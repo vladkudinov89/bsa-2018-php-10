@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Entity\Currency' => 'App\Policies\CurrencyPolicies',
     ];
 
     /**
@@ -24,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+//        Gate::resource('currency', 'App\Policies\CurrencyPolicies');
         //
     }
 }

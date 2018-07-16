@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth'] , function (){
+    Route::put('/currencies/{id}/rate' , 'Api\CurrenciesController@updateRateCurrency');
+});
+
+//Route::put('currencies/{id}/rate' , 'Api\CurrenciesController@updateRateCurrency')->middleware('auth');
